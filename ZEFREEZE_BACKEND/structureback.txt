@@ -1,0 +1,55 @@
+.
+├── checkStripe.js
+├── config
+│   └── seedUsers.js
+├── controllers
+│   ├── authController.js
+│   ├── clientController.js
+│   ├── interventionController.js
+│   ├── materialKitController.js
+│   ├── messageController.js
+│   ├── notificationController.js
+│   ├── paymentController.js
+│   ├── quoteController.js
+│   ├── reportsController.js
+│   ├── technicianController.js
+│   └── userController.js
+├── generateToken.js
+├── middlewares
+│   └── authMiddleware.js
+├── models
+│   ├── Client.js
+│   ├── Intervention.js
+│   ├── MaterialKit.js
+│   ├── Message.js
+│   ├── Notification.js
+│   ├── Quote.js
+│   ├── QuoteRequest.js
+│   ├── Report.js
+│   ├── Technician.js
+│   └── User.js
+├── package.json
+├── package-lock.json
+├── routes
+│   ├── authRoutes.js
+│   ├── clientRoutes.js
+│   ├── interventionRoutes.js
+│   ├── materialKitRoutes.js
+│   ├── messageRoutes.js
+│   ├── notificationRoutes.js
+│   ├── paymentRoutes.js
+│   ├── QuoteRequest.js
+│   ├── quoteRoutes.js
+│   ├── reportsRoutes.js
+│   ├── technicianRoutes.js
+│   └── userRoutes.js
+├── server.js
+├── structureback.txt
+├── structure.txt
+├── tsconfig.json
+├── uploads
+├── utils
+│   └── generateToken.js
+└── yarn.lock
+
+7 directories, 45 files

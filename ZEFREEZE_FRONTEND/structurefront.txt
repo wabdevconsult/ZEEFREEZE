@@ -1,0 +1,242 @@
+.
+├── eslint.config.js
+├── fichierimpotat
+├── index.html
+├── package.json
+├── package-lock.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── public
+│   └── templates
+│       ├── companies-template.csv
+│       ├── equipment-template.csv
+│       └── users-template.csv
+├── README.md
+├── src
+│   ├── App.tsx
+│   ├── components
+│   │   ├── auth
+│   │   │   ├── AuthCheck.tsx
+│   │   │   └── ProtectedRoute.tsx
+│   │   ├── common
+│   │   │   ├── CsvImportButton.tsx
+│   │   │   ├── CsvImportModal.tsx
+│   │   │   ├── Logo.tsx
+│   │   │   ├── MessageNotification.tsx
+│   │   │   └── PaymentSummaryCard.tsx
+│   │   ├── crm
+│   │   │   └── CsvImportGuide.tsx
+│   │   ├── installation
+│   │   │   ├── InstallationRequestCard.tsx
+│   │   │   ├── InstallationRequestForm.tsx
+│   │   │   ├── InstallationStatusBadge.tsx
+│   │   │   ├── TechnicianAvailabilityCalendar.tsx
+│   │   │   └── TechnicianSchedule.tsx
+│   │   ├── messaging
+│   │   │   ├── MessageDetail.tsx
+│   │   │   ├── MessageEmpty.tsx
+│   │   │   ├── MessageList.tsx
+│   │   │   └── NewMessageForm.tsx
+│   │   ├── navigation
+│   │   │   ├── DashboardHeader.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Sidebar.tsx
+│   │   ├── notifications
+│   │   │   ├── NotificationBell.tsx
+│   │   │   ├── NotificationList.tsx
+│   │   │   └── NotificationPreferences.tsx
+│   │   ├── PaymentForm.tsx
+│   │   ├── payments
+│   │   │   ├── InvoiceCard.tsx
+│   │   │   ├── InvoiceStatusBadge.tsx
+│   │   │   ├── PaymentDetailCard.tsx
+│   │   │   ├── PaymentHistoryTable.tsx
+│   │   │   └── PaymentMethodSelector.tsx
+│   │   ├── quotes
+│   │   │   ├── MaterialKitSelector.tsx
+│   │   │   ├── QuoteCard.tsx
+│   │   │   ├── QuoteItemsTable.tsx
+│   │   │   ├── QuoteRequestCard.tsx
+│   │   │   └── QuoteSummary.tsx
+│   │   ├── reports
+│   │   │   ├── ComplianceCheckItem.tsx
+│   │   │   ├── HaccpComplianceCard.tsx
+│   │   │   ├── PhotoComparison.tsx
+│   │   │   ├── ReportPhotoUploader.tsx
+│   │   │   ├── SignatureCanvas.tsx
+│   │   │   └── TemperatureLogCard.tsx
+│   │   ├── slack
+│   │   │   ├── SlackCommands.tsx
+│   │   │   ├── SlackIntegrationButton.tsx
+│   │   │   └── SlackMessagePreview.tsx
+│   │   ├── technician
+│   │   │   ├── MobileInterventionCard.tsx
+│   │   │   ├── TechnicianAvailabilityCalendar.tsx
+│   │   │   ├── TechnicianAvailabilityForm.tsx
+│   │   │   ├── TechnicianAvailabilityGrid.tsx
+│   │   │   ├── TechnicianCard.tsx
+│   │   │   ├── TechnicianInterventionList.tsx
+│   │   │   └── TechnicianScheduleCalendar.tsx
+│   │   └── ui
+│   │       ├── card.tsx
+│   │       └── icons
+│   │           └── Edit.tsx
+│   ├── contexts
+│   │   ├── AuthContext.tsx
+│   │   └── I18nContext.tsx
+│   ├── hooks
+│   │   ├── useAuthentication.ts
+│   │   ├── useClients.ts
+│   │   ├── useCompanies.ts
+│   │   ├── useCsvImport.ts
+│   │   ├── useDeployment.ts
+│   │   ├── useEquipment.ts
+│   │   ├── useInstallationRequests.ts
+│   │   ├── useInterventions.ts
+│   │   ├── useNotifications.ts
+│   │   ├── usePayments.ts
+│   │   ├── useQuotes.ts
+│   │   ├── useReports.ts
+│   │   ├── useTechnicians.ts
+│   │   └── useUsers.ts
+│   ├── i18n
+│   │   └── translations
+│   │       ├── en.ts
+│   │       ├── fr.ts
+│   │       └── index.ts
+│   ├── index.css
+│   ├── layouts
+│   │   ├── DashboardLayout.tsx
+│   │   └── PublicLayout.tsx
+│   ├── lib
+│   │   └── axios.ts
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── auth
+│   │   │   ├── DefaultUsersPage.tsx
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── RegisterPage.tsx
+│   │   │   └── ResetPasswordPage.tsx
+│   │   ├── crm
+│   │   │   ├── CompanyDetailsPage.tsx
+│   │   │   ├── CompanyEditPage.tsx
+│   │   │   ├── CompanyListPage.tsx
+│   │   │   ├── CompanyNewPage.tsx
+│   │   │   ├── InstallationListPage.tsx
+│   │   │   ├── InstallationRequestPage.tsx
+│   │   │   ├── StatisticsPage.tsx
+│   │   │   └── TechnicianAssignmentPage.tsx
+│   │   ├── dashboard
+│   │   │   ├── AdminDashboard.tsx
+│   │   │   ├── ClientDashboard.tsx
+│   │   │   └── TechnicianDashboard.tsx
+│   │   ├── equipment
+│   │   │   ├── EquipmentDetailsPage.tsx
+│   │   │   ├── EquipmentEditPage.tsx
+│   │   │   ├── EquipmentListPage.tsx
+│   │   │   └── EquipmentNewPage.tsx
+│   │   ├── interventions
+│   │   │   ├── InterventionsListPage.tsx
+│   │   │   ├── InterventionsPage.tsx
+│   │   │   └── InterventionNewPage.tsx
+│   │   ├── messaging
+│   │   │   ├── MessagingPage.tsx
+│   │   │   └── SlackIntegrationPage.tsx
+│   │   ├── NotFoundPage.tsx
+│   │   ├── notifications
+│   │   │   └── NotificationsPage.tsx
+│   │   ├── payments
+│   │   │   ├── AdminPaymentDashboard.tsx
+│   │   │   ├── AdminPaymentListPage.tsx
+│   │   │   ├── ClientPaymentHistoryPage.tsx
+│   │   │   ├── ClientPaymentListPage.tsx
+│   │   │   ├── ClientPaymentPage.tsx
+│   │   │   ├── InvoiceDetailPage.tsx
+│   │   │   ├── InvoiceNewPage.tsx
+│   │   │   ├── InvoicesPage.tsx
+│   │   │   ├── PaymentDetailPage.tsx
+│   │   │   ├── PaymentListPage.tsx
+│   │   │   └── PaymentPage.tsx
+│   │   ├── profile
+│   │   │   └── ProfilePage.tsx
+│   │   ├── public
+│   │   │   ├── AboutPage.tsx
+│   │   │   ├── ContactPage.tsx
+│   │   │   ├── HomePage.tsx
+│   │   │   └── ServicesPage.tsx
+│   │   ├── quotes
+│   │   │   ├── QuoteConfirmedListPage.tsx
+│   │   │   ├── QuoteCreatePage.tsx
+│   │   │   ├── QuoteDetailPage.tsx
+│   │   │   ├── QuoteEditPage.tsx
+│   │   │   ├── QuoteNewListPage.tsx
+│   │   │   ├── QuotePreparedListPage.tsx
+│   │   │   └── QuoteValidatedListPage.tsx
+│   │   ├── reports
+│   │   │   ├── FeasibilityReportPage.tsx
+│   │   │   ├── HaccpFormPage.tsx
+│   │   │   ├── HaccpReportPage.tsx
+│   │   │   ├── InstallationReportPage.tsx
+│   │   │   ├── ReportEditPage.tsx
+│   │   │   ├── ReportListPage.tsx
+│   │   │   ├── ReportNewPage.tsx
+│   │   │   ├── ReportPage.tsx
+│   │   │   └── TemperatureLogPage.tsx
+│   │   ├── settings
+│   │   │   └── SettingsPage.tsx
+│   │   ├── technician
+│   │   │   ├── MobileChecklistPage.tsx
+│   │   │   ├── TechnicianAvailabilityPage.tsx
+│   │   │   └── TechnicianSchedulePage.tsx
+│   │   └── users
+│   │       ├── TechnicianManagementPage.tsx
+│   │       ├── UserDetailsPage.tsx
+│   │       ├── UserEditPage.tsx
+│   │       ├── UserListPage.tsx
+│   │       └── UserNewPage.tsx
+│   ├── services
+│   │   ├── companyService.ts
+│   │   ├── dashboard.ts
+│   │   ├── deploymentService.ts
+│   │   ├── equipmentService.ts
+│   │   ├── installationService.ts
+│   │   ├── interventionService.ts
+│   │   ├── messageService.ts
+│   │   ├── notificationService.ts
+│   │   ├── paymentService.ts
+│   │   ├── quoteService.ts
+│   │   ├── reportService.ts
+│   │   ├── technicianService.ts
+│   │   └── userService.ts
+│   ├── types
+│   │   ├── auth.ts
+│   │   ├── company.ts
+│   │   ├── equipment.ts
+│   │   ├── i18n.ts
+│   │   ├── installation.ts
+│   │   ├── intervention.ts
+│   │   ├── message.ts
+│   │   ├── notification.ts
+│   │   ├── payment.ts
+│   │   ├── quote.ts
+│   │   ├── report.ts
+│   │   ├── supabase.ts
+│   │   ├── supabase-types.ts
+│   │   ├── technician.ts
+│   │   └── user.ts
+│   ├── utils
+│   │   ├── auth-check.ts
+│   │   ├── auth-helpers.ts
+│   │   ├── csvParser.ts
+│   │   └── formatters.ts
+│   └── vite-env.d.ts
+├── structurefront.txt
+├── structure.txt
+├── tailwind.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+44 directories, 195 files
