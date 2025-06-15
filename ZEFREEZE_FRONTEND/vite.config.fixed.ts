@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
       return acc;
     }, {} as Record<string, string>);
 
-  const apiUrl = env.VITE_API_URL || 'https://www.zeefreeze.fr/api';
-
+  const apiUrl = env.VITE_API_URL || 'https://zeefreeze.fr/api';
+  
   return {
     plugins: [react()],
     resolve: {

@@ -1,16 +1,16 @@
-import axios from './axios';
+import api from "@/lib/axios";
 
 export const getClients = async () => {
-  const response = await axios.get('/client');
+  const response = await api.get('/client');
   return response.data;
 };
 
 export const getClientById = async (id: string) => {
-  const response = await axios.get(`/client/${id}`);
+  const response = await api.get(`/client/${id}`);
   return response.data;
 };
 
 export const createClient = async (data: any) => {
-  const response = await axios.post('/client', data);
+  const response = await api.post('/client', data);
   return response.data;
 };

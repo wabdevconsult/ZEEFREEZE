@@ -29,7 +29,7 @@ module.exports = function (req, res, next) {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        domain: process.env.COOKIE_DOMAIN || '51.44.4.92'
+        domain: process.env.COOKIE_DOMAIN || 'zeefreeze.fr'
       });
     }
 

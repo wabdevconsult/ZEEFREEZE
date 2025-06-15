@@ -11,7 +11,7 @@ const tokenConfig = {
     secure: process.env.NODE_ENV === 'production', // false en développement
     maxAge: 7 * 24 * 60 * 60 * 1000,
     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    domain: process.env.COOKIE_DOMAIN || '51.44.4.92',
+     domain: process.env.COOKIE_DOMAIN || 'zeefreeze.fr',
     path: '/'
   }
 };
