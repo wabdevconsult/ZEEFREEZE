@@ -1,5 +1,3 @@
-// vite.config.ts
-
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -7,7 +5,6 @@ import path from 'path';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
-  // Ne conserver que les variables qui commencent par VITE_
   const viteEnv = Object.keys(env)
     .filter((key) => key.startsWith('VITE_'))
     .reduce((acc, key) => {
@@ -15,7 +12,7 @@ export default defineConfig(({ mode }) => {
       return acc;
     }, {} as Record<string, string>);
 
-  const apiUrl = env.VITE_API_URL || 'http://15.236.206.129:7500';
+  const apiUrl = env.VITE_API_URL || 'https://www.zeefreeze.fr/api';
 
   return {
     plugins: [react()],
@@ -27,6 +24,9 @@ export default defineConfig(({ mode }) => {
     server: {
       host: '0.0.0.0',
       port: 5173,
+      fs: {
+        allow: [path.resolve(__dirname, './')], // Limitez aux fichiers nécessaires
+      },
       proxy: {
         '/api': {
           target: apiUrl,
@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       ...viteEnv,
-      'process.env': {}, // optionnel, pour compatibilité certains packages
+      'process.env': {},
     },
   };
 });

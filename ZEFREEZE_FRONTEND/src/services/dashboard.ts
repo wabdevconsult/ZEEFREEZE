@@ -6,7 +6,7 @@ import api from '@/lib/axios';   // Cohérent avec les autres services
  */
 export const getClientCompany = async (userId: string): Promise<string | null> => {
   try {
-    const res = await api.get(`/api/user/${userId}/company`);
+    const res = await api.get(`/user/${userId}/company`);
     return res.data.companyId;
   } catch (error) {
     console.error('Erreur getClientCompany:', error);
@@ -20,7 +20,7 @@ export const getClientCompany = async (userId: string): Promise<string | null> =
  */
 export const getClientEquipment = async (companyId: string): Promise<any[]> => {
   try {
-    const res = await api.get(`/api/company/${companyId}/equipment`);
+    const res = await api.get(`/company/${companyId}/equipment`);
     return res.data;
   } catch (error) {
     console.error('Erreur getClientEquipment:', error);
@@ -34,7 +34,7 @@ export const getClientEquipment = async (companyId: string): Promise<any[]> => {
  */
 export const getClientInterventions = async (companyId: string): Promise<any[]> => {
   try {
-    const res = await api.get(`/api/company/${companyId}/api/intervention`);
+    const res = await api.get(`/company/${companyId}/intervention`);
     return res.data;
   } catch (error) {
     console.error('Erreur getClientInterventions:', error);
@@ -48,7 +48,7 @@ export const getClientInterventions = async (companyId: string): Promise<any[]> 
  */
 export const getClientReports = async (companyId: string): Promise<any[]> => {
   try {
-    const res = await api.get(`/api/company/${companyId}/reports`);
+    const res = await api.get(`/company/${companyId}/reports`);
     return res.data;
   } catch (error) {
     console.error('Erreur getClientReports:', error);
@@ -62,7 +62,7 @@ export const getClientReports = async (companyId: string): Promise<any[]> => {
  */
 export const getTechnicianAssignments = async (technicianId: string): Promise<any[]> => {
   try {
-    const res = await api.get(`/api/technician/${technicianId}/assignments`);
+    const res = await api.get(`/technician/${technicianId}/assignments`);
     return res.data;
   } catch (error) {
     console.error('Erreur getTechnicianAssignments:', error);
@@ -76,7 +76,7 @@ export const getTechnicianAssignments = async (technicianId: string): Promise<an
  */
 export const getTechnicianStats = async (technicianId: string): Promise<any> => {
   try {
-    const res = await api.get(`/api/technician/${technicianId}/stats`);
+    const res = await api.get(`/technician/${technicianId}/stats`);
     return res.data;
   } catch (error) {
     console.error('Erreur getTechnicianStats:', error);
@@ -91,7 +91,7 @@ export const getTechnicianStats = async (technicianId: string): Promise<any> => 
  */
 export const updateInterventionStatus = async (interventionId: string, status: string): Promise<any> => {
   try {
-    const res = await api.patch(`/api/intervention/${interventionId}/status`, { status });
+    const res = await api.patch(`/intervention/${interventionId}/status`, { status });
     return res.data;
   } catch (error) {
     console.error('Erreur updateInterventionStatus:', error);

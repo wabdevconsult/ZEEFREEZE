@@ -4,33 +4,47 @@ const bcrypt = require('bcryptjs');
 module.exports = async () => {
   try {
     const existingEmails = (await User.find({}, 'email')).map(u => u.email);
-    const emailsToSeed = [
-      'admin@zefreez.com',
-      'tech@zefreez.com', 
-      'client@zefreez.com'
-    ].filter(email => !existingEmails.includes(email));
+    
+    const seedData = [
+      {
+        email: 'bak.abdrrahman@gmail.com',
+        name: 'Abdrrahman',
+        role: 'admin',
+        password: 'super@admin',
+      },
+      {
+        email: 'tech@zefreez.com',
+        name: 'Tech',
+        role: 'technician',
+        password: 'super@admin',
+      },
+      {
+        email: 'client@zefreez.com',
+        name: 'Client',
+        role: 'client',
+        password: 'super@admin',
+      }
+    ];
 
-    if (emailsToSeed.length === 0) {
+    const usersToInsert = await Promise.all(
+      seedData
+        .filter(user => !existingEmails.includes(user.email))
+        .map(async user => ({
+          email: user.email,
+          name: user.name,
+          password: await bcrypt.hash(user.password, 10),
+          role: user.role,
+          createdAt: new Date()
+        }))
+    );
+
+    if (usersToInsert.length === 0) {
       return console.log('✅ Tous les comptes de test existent déjà');
     }
 
-    const users = await Promise.all(
-      emailsToSeed.map(async (email) => {
-        const username = email.split('@')[0];
-        return {
-          email,
-          name: username.charAt(0).toUpperCase() + username.slice(1),
-          password: await bcrypt.hash(`${username}123`, 10),
-          role: username === 'admin' ? 'admin' : 
-                username === 'tech' ? 'technician' : 'client',
-          createdAt: new Date()
-        };
-      })
-    );
-
-    await User.insertMany(users);
-    console.log(`🌿 ${users.length} comptes créés :`);
-    console.table(users.map(u => ({ email: u.email, role: u.role })));
+    await User.insertMany(usersToInsert);
+    console.log(`🌿 ${usersToInsert.length} comptes créés :`);
+    console.table(usersToInsert.map(u => ({ email: u.email, role: u.role })));
 
   } catch (err) {
     console.error('❌ Erreur lors du seed :', err.message);

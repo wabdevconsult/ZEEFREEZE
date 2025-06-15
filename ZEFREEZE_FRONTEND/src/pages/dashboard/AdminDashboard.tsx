@@ -34,11 +34,11 @@ const AdminDashboard: React.FC = () => {
       setIsLoading(true);
       try {
         const [usersRes, equipmentRes, interventionsRes, reportsRes, recentRes] = await Promise.all([
-          api.get('/api/users/count').catch(() => ({ data: { count: 0 } })),
-          api.get('/api/equipment').catch(() => ({ data: [] })),
-          api.get('/api/interventions').catch(() => ({ data: [] })),
-          api.get('/api/reports/count').catch(() => ({ data: { count: 0 } })),
-          api.get('/api/interventions/recent?limit=5').catch(() => ({ data: [] }))
+          api.get('/users/count').catch(() => ({ data: { count: 0 } })),
+          api.get('/equipment').catch(() => ({ data: [] })),
+          api.get('/interventions').catch(() => ({ data: [] })),
+          api.get('/reports/count').catch(() => ({ data: { count: 0 } })),
+          api.get('/interventions/recent?limit=5').catch(() => ({ data: [] }))
         ]);
 
         const equipmentData = equipmentRes.data || [];

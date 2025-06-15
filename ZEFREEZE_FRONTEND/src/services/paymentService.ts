@@ -1,4 +1,4 @@
-// src/services/api/paymentervice.ts
+// src/services/paymentervice.ts
 
 import api from '@/lib/axios';  
 import { PaymentIntent, Invoice } from '@/types/payment';
@@ -6,7 +6,7 @@ import { PaymentIntent, Invoice } from '@/types/payment';
 export const paymentService = {
   createPaymentIntent: async (invoiceId: string) => {
     try {
-      const res = await api.post('/api/payment/create-intent', { invoiceId });
+      const res = await api.post('/payment/create-intent', { invoiceId });
       return res.data;
     } catch (error) {
       console.error('Error creating payment intent:', error);
@@ -48,7 +48,7 @@ export const paymentService = {
 
   processPayment: async (invoiceId: string, paymentMethod: string) => {
     try {
-      const res = await api.post('/api/payment/process', {
+      const res = await api.post('/payment/process', {
         invoiceId,
         paymentMethod,
       });
@@ -70,7 +70,7 @@ export const paymentService = {
     paymentMethodId: string;
   }) => {
     try {
-      const res = await api.post('/api/payment/confirm', {
+      const res = await api.post('/payment/confirm', {
         userId,
         paymentId,
         paymentMethodId,

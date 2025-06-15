@@ -56,9 +56,9 @@ class Application {
   // Mettre à jour la configuration CORS pour accepter plusieurs origines
 getCorsOptions() {
   const allowedOrigins = [
-    'http://15.236.206.129:5173',
-    'http://localhost:5173',
-    // Ajouter d'autres origines au besoin
+    'https://www.zeefreeze.fr',
+    'https://zeefreeze.fr',
+    'http://localhost:5173', // Ajoutez cette ligne pour le développement local
   ];
 
   return {
@@ -112,7 +112,7 @@ getCorsOptions() {
     this.app.use(cors(this.getCorsOptions()));
     
     // Rate limiting
-    this.app.use('/api', rateLimit({
+    this.app.use('/', rateLimit({
       windowMs: 15 * 60 * 1000,
       max: 300,
       message: 'Too many requests from this IP, please try again later'
@@ -212,20 +212,20 @@ getCorsOptions() {
     this.server.listen(this.port, '0.0.0.0', () => {
       console.log(`Server running on port ${this.port} in ${process.env.NODE_ENV} mode`);
       console.log(`Available routes:`);
-      console.log(`- /api/auth`);
-      console.log(`- /api/user`);
-      console.log(`- /api/equipment`);
-      console.log(`- /api/intervention`);
-      console.log(`- /api/report`);
-      console.log(`- /api/client`);
-      console.log(`- /api/company`);
-      console.log(`- /api/materialkit`);
-      console.log(`- /api/message`);
-      console.log(`- /api/notification`);
-      console.log(`- /api/payment`);
-      console.log(`- /api/quote`);
-      console.log(`- /api/quote-request`);
-      console.log(`- /api/technician`);
+      console.log(`- /auth`);
+      console.log(`- /user`);
+      console.log(`- /equipment`);
+      console.log(`- /intervention`);
+      console.log(`- /report`);
+      console.log(`- /client`);
+      console.log(`- /company`);
+      console.log(`- /materialkit`);
+      console.log(`- /message`);
+      console.log(`- /notification`);
+      console.log(`- /payment`);
+      console.log(`- /quote`);
+      console.log(`- /quote-request`);
+      console.log(`- /technician`);
     });
   }
 }

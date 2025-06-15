@@ -47,7 +47,7 @@ export const companyService = {
     industry?: string;
   }): Promise<Company[]> => {
     try {
-      const response = await api.get('/api/company', { params });
+      const response = await api.get('/company', { params });
       return response.data.data;
     } catch (error) {
       console.error('Error fetching companies:', error);
@@ -57,7 +57,7 @@ export const companyService = {
 
   getById: async (id: string): Promise<Company> => {
     try {
-      const response = await api.get(`/api/company/${id}`);
+      const response = await api.get(`/company/${id}`);
       return response.data.data;
     } catch (error) {
       console.error(`Error fetching company ${id}:`, error);
@@ -67,7 +67,7 @@ export const companyService = {
 
   getCompanyDetails: async (id: string): Promise<CompanyDetails> => {
     try {
-      const response = await api.get(`/api/company/${id}/details`);
+      const response = await api.get(`/company/${id}/details`);
       return response.data.data;
     } catch (error) {
       console.error(`Error fetching company details ${id}:`, error);
@@ -77,7 +77,7 @@ export const companyService = {
 
   create: async (data: Omit<Company, 'id'>): Promise<Company> => {
     try {
-      const response = await api.post('/api/company', data);
+      const response = await api.post('/company', data);
       return response.data.data;
     } catch (error) {
       console.error('Error creating company:', error);
@@ -87,7 +87,7 @@ export const companyService = {
 
   update: async (id: string, data: Partial<Company>): Promise<Company> => {
     try {
-      const response = await api.put(`/api/company/${id}`, data);
+      const response = await api.put(`/company/${id}`, data);
       return response.data.data;
     } catch (error) {
       console.error(`Error updating company ${id}:`, error);
@@ -97,7 +97,7 @@ export const companyService = {
 
   delete: async (id: string): Promise<void> => {
     try {
-      await api.delete(`/api/company/${id}`);
+      await api.delete(`/company/${id}`);
     } catch (error) {
       console.error(`Error deleting company ${id}:`, error);
       throw error;
@@ -110,7 +110,7 @@ export const companyService = {
     errors: any[];
   }> => {
     try {
-      const response = await api.post('/api/company/import', data);
+      const response = await api.post('/company/import', data);
       return response.data.data;
     } catch (error) {
       console.error('Error importing companies:', error);
@@ -125,7 +125,7 @@ export const companyService = {
     industryStats: { _id: string; count: number }[];
   }> => {
     try {
-      const response = await api.get('/api/company/stats');
+      const response = await api.get('/company/stats');
       return response.data.data;
     } catch (error) {
       console.error('Error fetching company stats:', error);
@@ -135,7 +135,7 @@ export const companyService = {
 
   getCompanyEquipment: async (companyId: string) => {
     try {
-      const response = await api.get(`/api/equipment?companyId=${companyId}`);
+      const response = await api.get(`/equipment?companyId=${companyId}`);
       return response.data.data;
     } catch (error) {
       console.error('Error fetching company equipment:', error);
@@ -145,7 +145,7 @@ export const companyService = {
 
   getCompanyUsers: async (companyId: string) => {
     try {
-      const response = await api.get(`/api/users?companyId=${companyId}`);
+      const response = await api.get(`/users?companyId=${companyId}`);
       return response.data.data;
     } catch (error) {
       console.error('Error fetching company users:', error);
@@ -155,7 +155,7 @@ export const companyService = {
 
   getCompanyInterventions: async (companyId: string) => {
     try {
-      const response = await api.get(`/api/interventions?companyId=${companyId}`);
+      const response = await api.get(`/interventions?companyId=${companyId}`);
       return response.data.data;
     } catch (error) {
       console.error('Error fetching company interventions:', error);

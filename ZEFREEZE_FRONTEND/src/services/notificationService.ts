@@ -4,7 +4,7 @@ import { Notification, NotificationPreferences } from '../types/notification';
 export const notificationService = {
   getAll: async (): Promise<Notification[]> => {
     try {
-      const res = await api.get('/api/notification');
+      const res = await api.get('/notification');
       return res.data;
     } catch (error) {
       console.error('Error fetching notifications:', error);
@@ -14,7 +14,7 @@ export const notificationService = {
 
   getUnread: async (): Promise<Notification[]> => {
     try {
-      const res = await api.get('/api/notification/unread');
+      const res = await api.get('/notification/unread');
       return res.data;
     } catch (error) {
       console.error('Error fetching unread notifications:', error);
@@ -24,7 +24,7 @@ export const notificationService = {
 
   markAsRead: async (id: string): Promise<Notification> => {
     try {
-      const res = await api.patch(`/api/notification/${id}/read`);
+      const res = await api.patch(`/notification/${id}/read`);
       return res.data;
     } catch (error) {
       console.error(`Error marking notification ${id} as read:`, error);
@@ -34,7 +34,7 @@ export const notificationService = {
 
   markAllAsRead: async (): Promise<{ success: boolean }> => {
     try {
-      await api.patch('/api/notification/read-all');
+      await api.patch('/notification/read-all');
       return { success: true };
     } catch (error) {
       console.error('Error marking all notifications as read:', error);
@@ -44,7 +44,7 @@ export const notificationService = {
 
   getPreferences: async (): Promise<NotificationPreferences> => {
     try {
-      const res = await api.get('/api/notification/preferences');
+      const res = await api.get('/notification/preferences');
       return res.data;
     } catch (error) {
       console.error('Error fetching notification preferences:', error);
@@ -63,7 +63,7 @@ export const notificationService = {
     preferences: Partial<NotificationPreferences>
   ): Promise<NotificationPreferences> => {
     try {
-      const res = await api.put('/api/notification/preferences', preferences);
+      const res = await api.put('/notification/preferences', preferences);
       return res.data;
     } catch (error) {
       console.error('Error updating notification preferences:', error);
@@ -73,7 +73,7 @@ export const notificationService = {
 
   getUnreadCount: async (): Promise<number> => {
     try {
-      const res = await api.get('/api/notification/unread-count');
+      const res = await api.get('/notification/unread-count');
       return res.data.count;
     } catch (error) {
       console.error('Error fetching unread count:', error);

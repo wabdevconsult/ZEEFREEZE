@@ -21,14 +21,14 @@ interface UserData {
 
 export const userService = {
   list: async (): Promise<UserData[]> => {
-    const response = await api.get('/api/user', {
+    const response = await api.get('/user', {
       withCredentials: true // Important pour les cookies
     });
     return response.data.data;
   },
 
   get: async (id: string): Promise<UserData> => {
-    const response = await api.get(`/api/user${id}`);
+    const response = await api.get(`/user${id}`);
     return response.data.data;
   },
 
@@ -38,17 +38,17 @@ export const userService = {
   },
 
   update: async (id: string, data: Partial<UserData>): Promise<UserData> => {
-    const response = await api.put(`/api/user${id}`, data);
+    const response = await api.put(`/user${id}`, data);
     return response.data.data;
   },
 
   delete: async (id: string): Promise<{ message: string }> => {
-    const response = await api.delete(`/api/user${id}`);
+    const response = await api.delete(`/user${id}`);
     return response.data.data;
   },
 
   updateRole: async (id: string, role: 'admin' | 'technician' | 'client'): Promise<UserData> => {
-    const response = await api.patch(`/api/user${id}/role`, { role });
+    const response = await api.patch(`/user${id}/role`, { role });
     return response.data.data;
   }
 };

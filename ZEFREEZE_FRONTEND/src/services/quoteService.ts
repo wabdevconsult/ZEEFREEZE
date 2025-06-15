@@ -4,27 +4,27 @@ import api from '@/lib/axios';
 import { QuoteFormData } from '@/types/quote';
 
 const getNewRequests = async () => {
-  const res = await api.get('/api/quote-request/new');
+  const res = await api.get('/quote-request/new');
   return res.data;
 };
 
 const getRequestById = async (id: string) => {
-  const res = await api.get(`/api/quote-request/${id}`);
+  const res = await api.get(`/quote-request/${id}`);
   return res.data;
 };
 
 const createRequest = async (data: any) => {
-  const res = await api.post('/api/quote-request', data);
+  const res = await api.post('/quote-request', data);
   return res.data;
 };
 
 const confirmRequest = async (id: string) => {
-  const res = await api.post(`/api/quote-request/${id}/confirm`);
+  const res = await api.post(`/quote-request/${id}/confirm`);
   return res.data;
 };
 
 const rejectRequest = async (id: string) => {
-  const res = await api.post(`/api/quote-request/${id}/reject`);
+  const res = await api.post(`/quote-request/${id}/reject`);
   return res.data;
 };
 

@@ -8,13 +8,13 @@ interface ReportData {
 export const reportService = {
   // Get all reports
   list: async (): Promise<any[]> => {
-    const response = await api.get('/api/report');
+    const response = await api.get('/report');
     return response.data.data;
   },
 
   // Get single report
   get: async (id: string): Promise<any> => {
-    const response = await api.get(`/api/report/${id}`);
+    const response = await api.get(`/report/${id}`);
     return response.data.data;
   },
 
@@ -33,7 +33,7 @@ export const reportService = {
       }
     });
     
-    const response = await api.post('/api/report', formData, {
+    const response = await api.post('/report', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -55,7 +55,7 @@ export const reportService = {
       }
     });
     
-    const response = await api.put(`/api/report/${id}`, formData, {
+    const response = await api.put(`/report/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -65,7 +65,7 @@ export const reportService = {
 
   // Delete report
   delete: async (id: string): Promise<void> => {
-    await api.delete(`/api/report/${id}`);
+    await api.delete(`/report/${id}`);
   },
 
   // Add photos to report
@@ -73,7 +73,7 @@ export const reportService = {
     const formData = new FormData();
     photos.forEach(photo => formData.append('photos', photo));
     
-    const response = await api.post(`/api/report/${id}/photos`, formData, {
+    const response = await api.post(`/report/${id}/photos`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -86,13 +86,13 @@ export const reportService = {
     technicianSignature: string; 
     clientSignature: string 
   }): Promise<any> => {
-    const response = await api.post(`/api/report/${id}/sign`, signatures);
+    const response = await api.post(`/report/${id}/sign`, signatures);
     return response.data.data;
   },
 
   // Generate PDF
   generatePdf: async (id: string): Promise<Blob> => {
-    const response = await api.get(`/api/report/${id}/pdf`, {
+    const response = await api.get(`/report/${id}/pdf`, {
       responseType: 'blob'
     });
     return response.data;
@@ -100,7 +100,7 @@ export const reportService = {
 
   // Temperature logs
   getTemperatureLogs: async (): Promise<any[]> => {
-    const response = await api.get('/api/report/temperature/logs');
+    const response = await api.get('/report/temperature/logs');
     return response.data.data;
   },
 
@@ -109,7 +109,7 @@ export const reportService = {
     temperature: number;
     notes?: string;
   }): Promise<any> => {
-    const response = await api.post('/api/report/temperature/logs', data);
+    const response = await api.post('/report/temperature/logs', data);
     return response.data.data;
   }
 };
